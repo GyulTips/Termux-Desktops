@@ -10,7 +10,7 @@ Termux X11에서 데스크톱 환경을 실행하기 위한 스크립트들을 �
 * 🐧 [Proot 배포판 설치 방법: Alpine, Ubuntu, Debian, Arch, Kali Nethunter, Parrot OS, PostMarket OS](#proot-distributions)
 * 💀 [Chroot 배포판 설치 방법: Ubuntu, Debian, Box64Droid](#chroot-distributions)
 * 💻 [Termux 네이티브 데스크톱 설치 방법](#termux-native)
-* 🔥 [Termux에서 하드웨어 가속](https://github.com/LinuxDroidMaster/Termux-Desktops/blob/main/Documentation/HardwareAcceleration.md)
+* 🔥 [Termux에서 하드웨어 가속](https://github.com/GyulTips/Termux-Desktops/blob/main/Documentation/HardwareAcceleration.md)
 
 <br>
 <br>  
