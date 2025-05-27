@@ -212,9 +212,15 @@ pkg install pulseaudio
      ```
      (입력 후 저장)
      ```
+     # Pulseaudio 서버 시작
+     pulseaudio --start --exit-idle-time=-1
+     pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
+
+     # chroot 구성
      XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :0 -ac &
      sudo busybox mount --bind $PREFIX/tmp /data/local/tmp/chrootubuntu/tmp
 
+     # sudo 진입
      su
      ```
      (저장이 끝나면 명령 실행)
