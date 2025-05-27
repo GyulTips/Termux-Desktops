@@ -23,8 +23,9 @@
 ## 🏁 시작하기 <a name=first-steps-chroot></a>
 
 1.  먼저 기기가 <u>루팅</u>되어 있어야 합니다.
-2.  Magisk를 사용하여 [Busybox](https://github.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/releases)를 플래싱해 주세요.
-3.  그런 다음 Termux를 열고 다음 패키지들을 설치해 주세요.
+2.  [Termux](https://github.com/termux/termux-app/releases)와 [Termux-x11](https://github.com/termux/termux:X11/releases)을 설치해 주세요.
+3.  Magisk를 사용하여 [Busybox](https://github.com/Magisk-Modules-Alt-Repo/BuiltIn-BusyBox/releases)를 플래싱해 주세요.
+4.  그런 다음 Termux를 열고 다음 패키지들을 설치해 주세요.
 
 ```
 pkg update
