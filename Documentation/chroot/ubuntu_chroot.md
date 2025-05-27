@@ -216,6 +216,10 @@ pkg install pulseaudio
      pulseaudio --start --exit-idle-time=-1
      pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
 
+     # GPU 가속 설정
+     # MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 GALLIUM_DRIVER=zink ZINK_DESCRIPTORS=lazy virgl_test_server --use-egl-surfaceless --use-gles &
+     # virgl_test_server_android &
+
      # chroot 구성
      XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :0 -ac &
      sudo busybox mount --bind $PREFIX/tmp /data/local/tmp/chrootubuntu/tmp
@@ -242,5 +246,8 @@ pkg install pulseaudio
      ./start
      ```
      실행이 끝나면 termux-x11 앱을 열어 주세요!
+
+  ## 💻⚙️ GPU 가속 설정하기
+  GPU 가속 설정 부분은 아직 준비 중에 있습니다. 추후에 다시 설명드릴게요!
 
 </details>
