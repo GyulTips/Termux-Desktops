@@ -1,20 +1,16 @@
-# Android on Linux: Termux X11 Desktops
+# 안드로이드에서 리눅스 구동하기
 
-Collection of scripts to launch Desktops with audio in Termux X11. You have also all the information needed to install your prefered Linux Distro and connect to it in the following steps. 
+Termux X11에서 데스크톱 환경을 실행하기 위한 스크립트들을 모아두었습니다. 아래 단계들을 통해 원하시는 리눅스 배포판을 설치하고 연결하는 데 필요한 모든 정보도 확인하실 수 있습니다.
 
-### ⚠️ If you want to see the information as it was before the update (as shown in most of the videos) check this out: [README_old.md](README_old.md)
+### 모든 내용은 제 YouTube 채널인 [LinuxDroidMaster]에서 자세히 설명되어 있습니다. 방문하셔서 확인해 보세요!
 
-### You can see it all explained on my Youtube channel: [LinuxDroidMaster](https://www.youtube.com/@LinuxDroidMaster/videos)
-
-
-
-# 📚 Index
-* 🏁 [First steps](#first-steps)
-* ⚔️ [Termux native VS Proot-distro VS Chroot](#choose-linux)
-* 🐧 [How to install proot distributions: Alpine, Ubuntu, Debian, Arch, Kali Nethunter, Parrot OS, PostMarket OS](#proot-distributions)
-* 💀 [How to install Chroot distributions: Ubuntu, Debian, Box64Droid](#chroot-distributions)
-* 💻 [How to install Termux Native Desktop](#termux-native)
-* 🔥 [Hardware acceleration in Termux](https://github.com/LinuxDroidMaster/Termux-Desktops/blob/main/Documentation/HardwareAcceleration.md)
+# 📚 목차
+* 🏁 [첫 단계](#first-steps)
+* ⚔️ [Termux 네이티브 VS Proot-distro VS Chroot](#choose-linux)
+* 🐧 [Proot 배포판 설치 방법: Alpine, Ubuntu, Debian, Arch, Kali Nethunter, Parrot OS, PostMarket OS](#proot-distributions)
+* 💀 [Chroot 배포판 설치 방법: Ubuntu, Debian, Box64Droid](#chroot-distributions)
+* 💻 [Termux 네이티브 데스크톱 설치 방법](#termux-native)
+* 🔥 [Termux에서 하드웨어 가속](https://github.com/LinuxDroidMaster/Termux-Desktops/blob/main/Documentation/HardwareAcceleration.md)
 
 <br>
 <br>  
@@ -22,26 +18,24 @@ Collection of scripts to launch Desktops with audio in Termux X11. You have also
 ---  
 <br>
 
+## 리눅스 환경 미리 보기
+모든 환경은 XFCE4 데스크톱으로 설정되어 있지만, 원하시면 변경하실 수 있습니다.
 
-## Linux Environments Preview
-All environments are configured with XFCE4 Desktop but you can change it
-
-| Proot distro (Debian) | Native | Chroot (Debian) |
+| Proot 배포판 (Debian) | 네이티브 | Chroot (Debian) |
 |---------------------------------------------|---------------------------------------------|---------------------------------------------|
 | <img src="/Documentation/images/preview_proot.jpg"/> | <img src="/Documentation/images/preview_native.jpg"/>| <img src="/Documentation/images/preview_chroot.jpg"/>|
-
 
 ---  
 <br>
 <br>
 
-# 🏁 First steps <a name=first-steps></a>
-We are going to use Termux and Termux X11 in order to have a full Linux Desktop in our Android devices. 
+# 🏁 첫 단계 <a name=first-steps></a>
+안드로이드 기기에서 완전한 리눅스 데스크톱 환경을 즐기기 위해 Termux와 Termux X11을 사용해 볼 거예요.
 
-* [[Video] How to install Termux](https://www.youtube.com/watch?v=OMJAyq5NHp0)
-* [[Video] How to install and use Termux X11](https://www.youtube.com/watch?v=mXkXzFqSeYE)
+* [[영상] Termux 설치 방법](https://www.youtube.com/watch?v=OMJAyq5NHp0)
+* [[영상] Termux X11 설치 및 사용 방법](https://www.youtube.com/watch?v=mXkXzFqSeYE)
 
-Basic packages you need to install on Termux: 
+Termux에 설치해야 할 기본 패키지들입니다:
 
 ```
 pkg update
@@ -58,76 +52,74 @@ pkg install git
 ---  
 <br>
 
-# ⚔️ Termux native VS Proot-distro VS Chroot <a name=choose-linux></a>
+# ⚔️ Termux 네이티브 VS Proot-distro VS Chroot <a name=choose-linux></a>
 
-When setting up Linux on your Android device, you have several options to choose from. Understanding the differences between them can help you decide which environment best suits your needs:
+안드로이드 기기에 리눅스를 설정하실 때, 여러 가지 옵션 중에서 선택하실 수 있습니다. 각 옵션의 차이점을 이해하시면 본인에게 가장 적합한 환경을 결정하는 데 도움이 되실 거예요:
 
-### [1. Termux Native](#termux-native)
+### [1. Termux 네이티브](#termux-native)
 
-- Main video: [Termux native Desktop](https://www.youtube.com/watch?v=rq85dxMb7e4)
+- 메인 영상: [Termux 네이티브 데스크톱](https://www.youtube.com/watch?v=rq85dxMb7e4)
 
-Termux native refers to running Linux commands directly within the Termux app without any additional virtualization or containerization. It provides a lightweight and straightforward way to access Linux utilities on your Android device.
+Termux 네이티브는 Termux 앱 내에서 리눅스 명령어를 추가적인 가상화나 컨테이너화 없이 직접 실행하는 것을 의미합니다. 이는 안드로이드 기기에서 리눅스 유틸리티를 가볍고 직관적인 방법으로 사용할 수 있게 해줍니다.
 
 ### [2. Proot-Distro](#proot-distro)
 
-- Main video: [Debian proot and basic Termux X11 installation](https://www.youtube.com/watch?v=mXkXzFqSeYE)
+- 메인 영상: [Debian proot 및 Termux X11 기본 설치](https://www.youtube.com/watch?v=mXkXzFqSeYE)
 
-Proot-Distro is a method that utilizes `proot` (PRoot is a user-space implementation of chroot, mount --bind, and binfmt_misc) to run a full Linux distribution inside a chroot environment. This approach allows you to install and use a wide range of Linux distributions without root access. However, it may have some limitations compared to native installations.
+Proot-Distro는 `proot` (PRoot는 chroot, mount --bind, binfmt_misc의 사용자 공간 구현체입니다)를 활용하여 chroot 환경 내에서 완전한 리눅스 배포판을 실행하는 방식입니다. 이 방법은 루트 권한 없이도 다양한 리눅스 배포판을 설치하고 사용할 수 있게 해주지만, 네이티브 설치에 비해 몇 가지 제한 사항이 있을 수 있습니다.
 
 ### [3. Chroot](#chroot)
 
-- Main video: [Debian Chroot](https://www.youtube.com/watch?v=EDjKBme0DRI)
+- 메인 영상: [Debian Chroot](https://www.youtube.com/watch?v=EDjKBme0DRI)
 
-Chroot is a Unix command that changes the apparent root directory for the current running process and its children. In the context of running Linux on Android, chroot is often used to create a separate Linux environment alongside the Android system. While it provides a more isolated environment compared to Termux native, it may require more advanced setup and additional tools.
+Chroot는 현재 실행 중인 프로세스와 그 자식 프로세스의 보이는 루트 디렉터리를 변경하는 유닉스 명령어입니다. 안드로이드에서 리눅스를 실행하는 맥락에서, chroot는 안드로이드 시스템과 함께 별도의 리눅스 환경을 만드는 데 자주 사용됩니다. Termux 네이티브에 비해 더 고립된 환경을 제공하지만, 더 고급 설정과 추가적인 도구가 필요할 수 있습니다.
 
-#### Summary
+#### 요약
 
-- **Termux Native:** Simple and lightweight, but with limited capabilities compared to full Linux distributions.
-- **Proot-Distro:** Allows running full Linux distributions without root access, but may have some limitations.
-- **Chroot:** Provides a more isolated environment but requires more complex setup and additional tools.
+-   **Termux 네이티브:** 간단하고 가볍지만, 완전한 리눅스 배포판에 비해 기능이 제한적일 수 있습니다.
+-   **Proot-Distro:** 루트 권한 없이 완전한 리눅스 배포판을 실행할 수 있게 해주지만, 몇 가지 제한 사항이 있을 수 있습니다.
+-   **Chroot:** 더 고립된 환경을 제공하지만, 더 복잡한 설정과 추가 도구가 필요합니다.
 
-Consider your requirements and preferences when choosing the Linux environment for your Android device.
+안드로이드 기기에서 사용할 리눅스 환경을 선택하실 때는 사용자님의 요구 사항과 선호도를 고려해 주세요.
 
 ---  
 <br>
 
-## Comparison of Linux Environments on Android
+## 안드로이드 리눅스 환경 비교
 
-| Feature             | Proot          | Native         | Chroot         |
+| 특징             | Proot          | 네이티브         | Chroot         |
 |---------------------|----------------|----------------|----------------|
-| Needs Root?         | ❌ (No)        | ❌ (No)        | ✅ (Yes)       |
-| Many Linux Apps?    | ✅ (Yes)   | ❌ (Limited)       | ✅ (Yes)       |
-| Performance         | Moderate 💼    | Good 🚀        | Good 🚀   |
+| 루트 필요?         | ❌ (아니요)        | ❌ (아니요)        | ✅ (예)       |
+| 다양한 리눅스 앱?    | ✅ (예)   | ❌ (제한적)       | ✅ (예)       |
+| 성능         | 보통 💼    | 좋음 🚀        | 좋음 🚀   |
 
-- **Needs Root?**: Indicates whether root access is required for setting up the environment.
-- **Many Linux Apps?**: Reflects the level of compatibility with various Linux applications.
-- **Customization Level**: Describes the extent to which the environment can be customized or configured.
+-   **루트 필요?:** 환경을 설정하는 데 루트 권한이 필요한지 여부를 나타냅니다.
+-   **다양한 리눅스 앱?:** 다양한 리눅스 애플리케이션과의 호환성 수준을 보여줍니다.
 
 ---  
 <br>
 
-## 🐧 How to install proot distributions: Ubuntu, Debian, Arch, Kali Nethunter, Parrot OS, PostMarket OS <a name=proot-distributions></a>
+## 🐧 Proot 배포판 설치 방법: Ubuntu, Debian, Arch, Kali Nethunter, Parrot OS, PostMarket OS <a name=proot-distributions></a>
 
-Click on the different icons to see how you can install the distribution of your choice. All of them have a video explaining the process 
+원하는 배포판을 설치하는 방법을 보시려면 각 아이콘을 클릭해 주세요. 모든 배포판에 대한 설치 과정을 설명하는 영상이 준비되어 있습니다.
 
 | Alpine | Ubuntu | Debian | Arch | Kali NetHunter | Parrot OS | PostMarket | Void |
 |--------|--------|------|----------------|----------------|----------------|----------------|----------------|
-| <a href="/Documentation/proot/alpine_proot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/New_Logo_Alpine_Linux.svg/1200px-New_Logo_Alpine_Linux.svg.png" alt="Alpine Logo" width="100"></a> | <a href="/Documentation/proot/ubuntu_proot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo-ubuntu_cof-orange-hex.svg/1200px-Logo-ubuntu_cof-orange-hex.svg.png" alt="Ubuntu Logo" width="100"></a> | <a href="/Documentation/proot/debian_proot.md"><img src="https://www.shareicon.net/data/2015/09/16/101872_debian_512x512.png" alt="Debian Logo" width="100"></a> | <a href="/Documentation/proot/arch_proot.md"><img src="https://cdn0.iconfinder.com/data/icons/flat-round-system/512/archlinux-512.png" alt="Arch Logo" width="100"></a> | <a href="/Documentation/proot/kalinethunter_proot.md"><img src="https://static-00.iconduck.com/assets.00/distributor-logo-kali-linux-icon-2048x2005-dki611fk.png" alt="Kali Logo" width="100"></a> | <a href="/Documentation/proot/parrotos_proot.md"><img src="https://gdm-catalog-fmapi-prod.imgix.net/ProductLogo/b91dba39-aef6-4808-be11-8eda81f81f56.png" alt="Kali Logo" width="100"></a> | <a href="/Documentation/proot/postmarket.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PostmarketOS_logo.svg/1024px-PostmarketOS_logo.svg.png" alt="PostMarket Logo" width="100"></a> | <a href="/Documentation/proot/voidlinux.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Void_Linux_logo.svg/2485px-Void_Linux_logo.svg.png" alt="Void logo" width="100"></a> |
+| <a href="/Documentation/proot/alpine_proot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/New_Logo_Alpine_Linux.svg/1200px-New_Logo_Alpine_Linux.svg.png" alt="Alpine 로고" width="100"></a> | <a href="/Documentation/proot/ubuntu_proot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo-ubuntu_cof-orange-hex.svg/1200px-Logo-ubuntu_cof-orange-hex.svg.png" alt="Ubuntu 로고" width="100"></a> | <a href="/Documentation/proot/debian_proot.md"><img src="https://www.shareicon.net/data/2015/09/16/101872_debian_512x512.png" alt="Debian 로고" width="100"></a> | <a href="/Documentation/proot/arch_proot.md"><img src="https://cdn0.iconfinder.com/data/icons/flat-round-system/512/archlinux-512.png" alt="Arch 로고" width="100"></a> | <a href="/Documentation/proot/kalinethunter_proot.md"><img src="https://static-00.iconduck.com/assets.00/distributor-logo-kali-linux-icon-2048x2005-dki611fk.png" alt="Kali 로고" width="100"></a> | <a href="/Documentation/proot/parrotos_proot.md"><img src="https://gdm-catalog-fmapi-prod.imgix.net/ProductLogo/b91dba39-aef6-4808-be11-8eda81f81f56.png" alt="Parrot OS 로고" width="100"></a> | <a href="/Documentation/proot/postmarket.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PostmarketOS_logo.svg/1024px-PostmarketOS_logo.svg.png" alt="PostMarket 로고" width="100"></a> | <a href="/Documentation/proot/voidlinux.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Void_Linux_logo.svg/2485px-Void_Linux_logo.svg.png" alt="Void 로고" width="100"></a> |
 
 ---  
 <br>
 
-## 💀 How to install Chroot distributions: Ubuntu, Debian, Box64Droid <a name=chroot-distributions></a>
+## 💀 Chroot 배포판 설치 방법: Ubuntu, Debian, Box64Droid <a name=chroot-distributions></a>
 
-Click on the different icons to see how you can install the distribution of your choice. All of them have a video explaining the process 
+원하는 배포판을 설치하는 방법을 보시려면 각 아이콘을 클릭해 주세요. 모든 배포판에 대한 설치 과정을 설명하는 영상이 준비되어 있습니다.
 
 | Ubuntu | Debian | Box64Droid (Ubuntu) | Arch | Fedora |
 |--------|--------|--------|--------|--------|
-| <a href="/Documentation/chroot/ubuntu_chroot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo-ubuntu_cof-orange-hex.svg/1200px-Logo-ubuntu_cof-orange-hex.svg.png" alt="Ubuntu Logo" width="100"></a> | <a href="/Documentation/chroot/debian_chroot.md"><img src="https://www.shareicon.net/data/2015/09/16/101872_debian_512x512.png" alt="Debian Logo" width="100"></a> | <a href="/Documentation/chroot/box64droid_chroot.md"><img src="https://box64droid.com/wp-content/uploads/2023/10/Box64droid-logo.png" alt="Debian Logo" width="100"></a> | <a href="/Documentation/chroot/arch_chroot.md"><img src="https://cdn0.iconfinder.com/data/icons/flat-round-system/512/archlinux-512.png" alt="Arch Logo" width="100"></a> | <a href="/Documentation/chroot/fedora_chroot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Fedora_icon_%282021%29.svg" alt="Fedora Logo" width="100"></a> |
-
+| <a href="/Documentation/chroot/ubuntu_chroot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo-ubuntu_cof-orange-hex.svg/1200px-Logo-ubuntu_cof-orange-hex.svg.png" alt="Ubuntu 로고" width="100"></a> | <a href="/Documentation/chroot/debian_chroot.md"><img src="https://www.shareicon.net/data/2015/09/16/101872_debian_512x512.png" alt="Debian 로고" width="100"></a> | <a href="/Documentation/chroot/box64droid_chroot.md"><img src="https://box64droid.com/wp-content/uploads/2023/10/Box64droid-logo.png" alt="Box64droid 로고" width="100"></a> | <a href="/Documentation/chroot/arch_chroot.md"><img src="https://cdn0.iconfinder.com/data/icons/flat-round-system/512/archlinux-512.png" alt="Arch 로고" width="100"></a> | <a href="/Documentation/chroot/fedora_chroot.md"><img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Fedora_icon_%282021%29.svg" alt="Fedora 로고" width="100"></a> |
 
 ---  
 <br>
 
-## 💻 How to install Termux Native Desktop <a name=termux-native></a>
-### You have all the information to install a native Termux Desktop and all the available apps [here](/Documentation/native/termux_native.md).
+## 💻 Termux 네이티브 데스크톱 설치 방법 <a name=termux-native></a>
+네이티브 Termux 데스크톱을 설치하는 데 필요한 모든 정보와 사용 가능한 앱들은 [여기](/Documentation/native/termux_native.md)에서 확인하실 수 있습니다.
