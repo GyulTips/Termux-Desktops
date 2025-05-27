@@ -246,6 +246,9 @@ pkg install pulseaudio
      ./start
      ```
      실행이 끝나면 termux-x11 앱을 열어 주세요!
+     
+---  
+<br>
 
   ## 💻⚙️ GPU 가속 설정하기
   GPU 가속 설정 부분은 아직 준비 중에 있습니다. 추후에 다시 설명드릴게요!
