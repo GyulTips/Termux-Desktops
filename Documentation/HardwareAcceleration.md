@@ -22,6 +22,7 @@
 ## 1. Install packages
 You need to install the following packages in Termux: 
 ```
+pkg install tur-repo
 pkg install mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android
 ```
 
