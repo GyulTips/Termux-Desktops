@@ -146,10 +146,11 @@ pkg install pulseaudio
     gyul ALL=(ALL:ALL) ALL
     ```
 
-12. 생성된 사용자로 전환해 주세요.
+12. locale을 생성해 주세요.
     ```
     sudo apt install locales
     sudo locale-gen en_US.UTF-8
+    sudo locale-gen ko_KR.UTF-8
     ```
 
 13. 데스크톱 환경을 설치해 주세요.
@@ -239,7 +240,7 @@ pkg install pulseaudio
      chmod +x ./start
      ```
 
- 18. 설치 완료! (편의를 위해) 앱 강제 종료 - 다시 실행 후 다음 명령으로 실행해 보세요.
+ 18. 설치 완료! (편의를 위해) 앱 강제 종료 - 다시 실행 후 다음 명령으로 Ubuntu를 시작해 보세요.
      ```
      ./config
      ```
